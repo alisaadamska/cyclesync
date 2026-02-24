@@ -2,7 +2,7 @@
 This is the official repository for our agile engineering class mtm
 
 Tarinumu Egbuson
-Jane Morut
+Hi Jyn here!
 Hi Im fiona 
 Hey, This is Sameeksha 
 Hi Elikplim Stephen
