@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Instagram, Music2 } from "lucide-react";
 
 const useLiquidGlass = () => {
   const ref = useRef<HTMLElement | null>(null);
@@ -49,11 +50,13 @@ const Index = () => {
 
       {/* Navigation */}
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-8 lg:px-12 py-4 bg-black/30 backdrop-blur-md border-b border-white/10">
-          <div className="text-white font-light tracking-[0.25em] text-lg">
-            CycleSync<span className="text-white/50">®</span>
+          <div className="flex items-center gap-3">
+            <img src="https://i.postimg.cc/fW1nkM36/logo-dark.png" alt="Syncycle" className="h-9 object-contain" />
+            <span className="text-white font-light tracking-[0.25em] text-lg">Syncycle<span className="text-white/50">®</span></span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#mission" className="text-nav-link">Mission</a>
+            <a href="#how-it-works" className="text-nav-link">How it Works</a>
             <a href="#team" className="text-nav-link">Team</a>
             <a href="#blog" className="text-nav-link">Blog</a>
           </div>
@@ -105,7 +108,7 @@ const Index = () => {
       </section>
 
       {/* ===== MISSION SECTION ===== */}
-      <section id="mission" className="relative pt-32 pb-16 px-6 md:px-12">
+      <section id="mission" className="relative pt-32 pb-8 px-6 md:px-12">
         {/* Subtle radial glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,139,0.25),transparent_60%)] opacity-60" />
 
@@ -123,7 +126,65 @@ const Index = () => {
             Our mission is to empower women to live, train, and perform in alignment with their cycle — through intelligent, beautifully designed guidance.
           </p>
 
-          <div className="border-t border-white/10 mt-20" />
+          <div className="border-t border-white/10 mt-12" />
+        </div>
+      </section>
+
+      {/* ===== HOW IT WORKS ===== */}
+      <section id="how-it-works" className="pt-8 pb-20 px-6 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-white/50 uppercase tracking-widest text-sm mb-4">How It Works</p>
+            <h2 className="text-4xl md:text-5xl font-light text-white tracking-wide">How It Works</h2>
+            <p className="text-white/70 text-base md:text-lg font-light mt-3">Three steps to align ambition with biology.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Phase Clarity",
+                subtitle: "Understand where you are in your cycle — and what that means for your energy, mood, and performance.",
+                image: "https://i.postimg.cc/wjbV2jhG/hiw-1.png",
+              },
+              {
+                title: "Daily Guidance",
+                subtitle: "Receive tailored suggestions for training, focus, and recovery — aligned with your biology.",
+                image: "https://i.postimg.cc/zGMCWPrs/hiw-2.png",
+              },
+              {
+                title: "Adaptive Coaching",
+                subtitle: "Check in in seconds — Syncycle adapts your plan when life changes.",
+                image: "https://i.postimg.cc/sx6QzvDz/hiw-3.png",
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="rounded-3xl bg-white/[0.08] backdrop-blur-md border border-white/15 shadow-xl shadow-black/25 overflow-hidden transition duration-300 hover:border-white/25 flex flex-col"
+              >
+                <div className="relative h-64 md:h-72">
+                  <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/20" />
+                </div>
+                <div className="bg-black/35 backdrop-blur-sm p-6 md:p-7 text-left flex flex-col flex-1">
+                  <h3 className="text-white text-xl md:text-2xl font-light mb-3">{card.title}</h3>
+                  <p className="text-white/70 text-sm md:text-base leading-relaxed flex-1">{card.subtitle}</p>
+                  <a
+                    href="#early-access"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const input = document.getElementById("early-access-input") as HTMLInputElement;
+                      if (input) {
+                        input.scrollIntoView({ behavior: "smooth", block: "center" });
+                        setTimeout(() => input.focus(), 500);
+                      }
+                    }}
+                    className="liquid-glass-btn inline-block mt-6 rounded-full px-5 py-2.5 text-sm font-light text-white cursor-pointer self-start"
+                  >
+                    Try now →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -141,7 +202,7 @@ const Index = () => {
               { name: "Alisa", role: "Brand & Design", image: "https://i.postimg.cc/Gm75pfrC/Alisa.png" },
               { name: "Manish", role: "Engineering", image: "https://i.postimg.cc/RZsD0Y9z/Manish.png" },
               { name: "Jane", role: "Growth", image: "https://i.postimg.cc/P53Rq7HB/Jane.png" },
-              { name: "Elli", role: "Engineering" },
+              { name: "Eli", role: "Engineering", image: "https://i.postimg.cc/3xVKT2j5/Eli.png" },
               { name: "Tari", role: "Engineering" },
             ].map((member) => (
               <div
@@ -185,15 +246,15 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {[
               {
-                title: "Introducing CycleSync: Clarity for Your Cycle",
+                title: "Introducing Syncycle: Clarity for Your Cycle",
                 date: "Feb 2026",
-                author: "CycleSync Team",
+                author: "Syncycle Team",
                 image: "https://i.postimg.cc/qMFMLVFc/blog-3.jpg",
               },
               {
                 title: "Training, Mood, and Energy: Working With Your Phases",
                 date: "Feb 2026",
-                author: "CycleSync Team",
+                author: "Syncycle Team",
                 image: "https://i.postimg.cc/zGW5FLWK/blog-2.jpg",
               },
             ].map((post) => (
@@ -234,10 +295,8 @@ const Index = () => {
               {/* Left Column */}
               <div>
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="w-14 h-14 rounded-full border border-white/40 flex-shrink-0" />
-                  <span className="text-white text-xl font-light tracking-wide">
-                    CycleSync<span className="text-white/50">®</span>
-                  </span>
+                  <img src="https://i.postimg.cc/fW1nkM36/logo-dark.png" alt="Syncycle" className="h-10 object-contain opacity-90" />
+                  <span className="text-white text-lg font-light tracking-[0.25em]">Syncycle<span className="text-white/50">®</span></span>
                 </div>
                 <p className="text-white/50 text-sm mt-2">Your AI cycle companion</p>
               </div>
@@ -245,13 +304,18 @@ const Index = () => {
               {/* Middle Column */}
               <div>
                 <nav className="flex flex-col space-y-4">
-                  {["Why CycleSync", "Our Mission", "Features", "Team", "Contact"].map((item) => (
+                  {[
+                    { label: "Why Syncycle", href: "#" },
+                    { label: "Our Mission", href: "#mission" },
+                    { label: "How it Works", href: "#how-it-works" },
+                    { label: "Team", href: "#team" },
+                  ].map((item) => (
                     <a
-                      key={item}
-                      href="#"
+                      key={item.label}
+                      href={item.href}
                       className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-light"
                     >
-                      {item}
+                      {item.label}
                     </a>
                   ))}
                 </nav>
@@ -260,19 +324,29 @@ const Index = () => {
               {/* Right Column */}
               <div>
                 <p className="text-white/70 font-light mb-4">Follow us</p>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 transition-colors duration-300 flex items-center justify-center text-white/60"
-                >
-                  ✦
-                </a>
+                <div className="flex gap-3">
+                  <a
+                    href="#"
+                    className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 transition-colors duration-300 flex items-center justify-center text-white/60 hover:text-white"
+                    aria-label="Instagram"
+                  >
+                    <Instagram size={18} />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 transition-colors duration-300 flex items-center justify-center text-white/60 hover:text-white"
+                    aria-label="TikTok"
+                  >
+                    <Music2 size={18} />
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Divider + Legal */}
             <div className="border-t border-white/10 my-8" />
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <p className="text-white/40 text-sm">© 2026 CycleSync. All rights reserved.</p>
+              <p className="text-white/40 text-sm">© 2026 Syncycle. All rights reserved.</p>
               <div className="flex gap-6">
                 <a href="#" className="text-white/40 hover:text-white/60 transition-colors duration-300 text-sm">Privacy Policy</a>
                 <a href="#" className="text-white/40 hover:text-white/60 transition-colors duration-300 text-sm">Terms of Service</a>
